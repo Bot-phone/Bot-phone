@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בוט-פון | מערכות תקשורת חכמות</title>
+    
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%230066cc;stop-opacity:1" /><stop offset="100%" style="stop-color:%2300d2d3;stop-opacity:1" /></linearGradient></defs><path d="M92.4,50 C92.4,47.3 92,44.7 91.3,42.2 L98.7,36.4 C99.4,35.9 99.6,34.9 99.1,34.1 L95.6,28 C95.1,27.2 94.1,26.9 93.3,27.2 L84.5,30.7 C82.6,29.2 80.5,27.9 78.2,27 L76.9,17.7 C76.7,16.8 76,16.1 75.1,16.1 L68,16.1 C67.1,16.1 66.3,16.8 66.2,17.7 L64.9,27 C62.6,27.9 60.5,29.2 58.6,30.7 L49.8,27.2 C49,26.9 48,27.2 47.5,28 L44,34.1 C43.5,34.9 43.7,35.9 44.4,36.4 L51.8,42.2 C51.1,44.7 50.7,47.3 50.7,50 C50.7,52.7 51.1,55.3 51.8,57.8 L44.4,63.6 C43.7,64.1 43.5,65.1 44,65.9 L47.5,72 C48,72.8 49,73.1 49.8,72.8 L58.6,69.3 C60.5,70.8 62.6,72.1 64.9,73 L66.2,82.3 C66.3,83.2 67.1,83.9 68,83.9 L75.1,83.9 C76,83.9 76.7,83.2 76.9,82.3 L78.2,73 C80.5,72.1 82.6,70.8 84.5,69.3 L93.3,72.8 C94.1,73.1 95.1,72.8 95.6,72 L99.1,65.9 C99.6,65.1 99.4,64.1 98.7,63.6 L91.3,57.8 C92,55.3 92.4,52.7 92.4,50 Z" fill="url(%23grad1)"/><path d="M35.9,64.1 C28.1,56.3 28.1,43.7 35.9,35.9 C37.8,34 40.4,32.9 43.1,32.9 L43.1,22 C37.4,22 32.1,24.2 28.1,28.1 C19.9,36.3 19.9,49.6 28.1,57.8 L35.9,64.1 Z" fill="%230066cc"/><path d="M22.9,77.1 L15.1,70.8 C7,78.9 7,92.2 15.1,100.4 L22.9,94.1 C18.2,89.4 18.2,81.8 22.9,77.1 Z" fill="%2300d2d3"/><circle cx="71.5" cy="50" r="13" fill="%23ffffff"/><path d="M66.5,50 L76.5,50 M69,45 L74,45 M69,55 L74,55" stroke="%230066cc" stroke-width="3" stroke-linecap="round"/></svg>'>
+
+    <style>
+        /* ייבוא גופן מודרני וקריא */
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap');
+
+        :root {
+            --primary-color: #0066cc; /* כחול הייטק */
+            --secondary-color: #f0f4f8; /* רקע בהיר */
+            --accent-color: #00d2d3; /* טורקיז להדגשות */
+            --text-color: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* כותרת עליונה וניווט */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 0.8rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            height: 45px;
+            width: auto;
+        }
+        
+        .logo-text {
+            position: relative;
+            top: 2px;
+        }
+
+        .contact-btn {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #0052a3;
+        }
+
+        /* איזור ראשי - Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), #004080);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 1rem;
+            border-bottom-right-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* כרטיסי שירותים */
+        .services {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 3rem 5%;
+            flex-wrap: wrap;
+            margin-top: -2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* פוטר */
+        footer {
+            background: #222;
+            color: #ddd;
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+        }
+
+        .email-link {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">
+            <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                    <linearGradient id="grad1_header" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#0066cc;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#00d2d3;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M92.4,50 C92.4,47.3 92,44.7 91.3,42.2 L98.7,36.4 C99.4,35.9 99.6,34.9 99.1,34.1 L95.6,28 C95.1,27.2 94.1,26.9 93.3,27.2 L84.5,30.7 C82.6,29.2 80.5,27.9 78.2,27 L76.9,17.7 C76.7,16.8 76,16.1 75.1,16.1 L68,16.1 C67.1,16.1 66.3,16.8 66.2,17.7 L64.9,27 C62.6,27.9 60.5,29.2 58.6,30.7 L49.8,27.2 C49,26.9 48,27.2 47.5,28 L44,34.1 C43.5,34.9 43.7,35.9 44.4,36.4 L51.8,42.2 C51.1,44.7 50.7,47.3 50.7,50 C50.7,52.7 51.1,55.3 51.8,57.8 L44.4,63.6 C43.7,64.1 43.5,65.1 44,65.9 L47.5,72 C48,72.8 49,73.1 49.8,72.8 L58.6,69.3 C60.5,70.8 62.6,72.1 64.9,73 L66.2,82.3 C66.3,83.2 67.1,83.9 68,83.9 L75.1,83.9 C76,83.9 76.7,83.2 76.9,82.3 L78.2,73 C80.5,72.1 82.6,70.8 84.5,69.3 L93.3,72.8 C94.1,73.1 95.1,72.8 95.6,72 L99.1,65.9 C99.6,65.1 99.4,64.1 98.7,63.6 L91.3,57.8 C92,55.3 92.4,52.7 92.4,50 Z" fill="url(#grad1_header)"/>
+                <path d="M35.9,64.1 C28.1,56.3 28.1,43.7 35.9,35.9 C37.8,34 40.4,32.9 43.1,32.9 L43.1,22 C37.4,22 32.1,24.2 28.1,28.1 C19.9,36.3 19.9,49.6 28.1,57.8 L35.9,64.1 Z" fill="#0066cc"/>
+                <path d="M22.9,77.1 L15.1,70.8 C7,78.9 7,92.2 15.1,100.4 L22.9,94.1 C18.2,89.4 18.2,81.8 22.9,77.1 Z" fill="#00d2d3"/>
+                <circle cx="71.5" cy="50" r="13" fill="#ffffff"/>
+                <path d="M66.5,50 L76.5,50 M69,45 L74,45 M69,55 L74,55" stroke="#0066cc" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span class="logo-text">בוט-פון</span>
+        </a>
+        <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&source=mailto&su=%D7%A4%D7%A0%D7%99%D7%94+%D7%9C%D7%97%D7%91%D7%A8%D7%AA+%D7%91%D7%95%D7%98+%D7%A4%D7%95%D7%9F&to=qq8401948%40gmail.com&body=%D7%A9%D7%9C%D7%95%D7%9D%2C+%D7%91%D7%A8%D7%A6%D7%95%D7%A0%D7%99+%D7%9C%D7%91%D7%A0%D7%95%D7%AA+%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA+%D7%98%D7%9C%D7%A4%D7%95%D7%A0%D7%99%D7%AA" target="_blank" rel="noopener noreferrer" class="contact-btn">צור קשר</a>
+    </header>
+
+    <section class="hero">
+        <h1>מערכות טלפוניות חכמות</h1>
+        <p>מומחים בבניית מערכות מתקדמות על גבי פלטפורמת ימות המשיח. פתרונות IVR, סליקה, וממשקי API בהתאמה אישית.</p>
+    </section>
+
+    <div class="services">
+        <div class="card">
+            <h3>🤖 אפיון ובנייה</h3>
+            <p>תכנון עץ שיחות חכם ומותאם לצרכי העסק, לשיפור חווית הלקוח.</p>
+        </div>
+        <div class="card">
+            <h3>🔗 חיבורי API</h3>
+            <p>סנכרון מלא בין הטלפון למחשב, CRM ומסדי נתונים בזמן אמת.</p>
+        </div>
+        <div class="card">
+            <h3>💳 סליקה טלפונית</h3>
+            <p>מערכות תשלום מאובטחות ואוטומטיות 24/6 ללא מגע יד אדם.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>רוצים לשדרג את המערכת הטלפונית שלכם?</p>
+        <p>צרו איתנו קשר במייל:</p>
+        <br>
+        <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&source=mailto&su=%D7%A4%D7%A0%D7%99%D7%94+%D7%9C%D7%97%D7%91%D7%A8%D7%AA+%D7%91%D7%95%D7%98+%D7%A4%D7%95%D7%9F&to=qq8401948%40gmail.com&body=%D7%A9%D7%9C%D7%95%D7%9D%2C+%D7%91%D7%A8%D7%A6%D7%95%D7%A0%D7%99+%D7%9C%D7%91%D7%A0%D7%95%D7%AA+%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA+%D7%98%D7%9C%D7%A4%D7%95%D7%A0%D7%99%D7%AA" target="_blank" rel="noopener noreferrer" class="email-link">C840194@GMAIL.COM</a>
+        <br><br>
+        <p>&copy; 2024 בוט-פון - פתרונות תקשורת.</p>
+    </footer>
+
+</body>
+</html>
