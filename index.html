@@ -17,6 +17,7 @@
             --accent-color: #00d2d3; /* טורקיז להדגשות */
             --text-color: #333;
             --white: #ffffff;
+            --ai-promo-bg: #ff6b6b; /* צבע בולט לכפתור */
         }
 
         * {
@@ -76,6 +77,10 @@
             text-decoration: none;
             font-weight: 500;
             transition: background 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            font-size: 1rem;
         }
 
         .contact-btn:hover {
@@ -112,6 +117,7 @@
             padding: 3rem 5%;
             flex-wrap: wrap;
             margin-top: -2rem;
+            margin-bottom: 2rem; 
         }
 
         .card {
@@ -142,6 +148,18 @@
             margin-top: auto;
         }
 
+        .footer-cta-text {
+            cursor: pointer;
+            color: var(--accent-color);
+            text-decoration: underline;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .footer-cta-text:hover {
+            color: #fff;
+        }
+
         .email-link {
             color: var(--accent-color);
             font-size: 1.2rem;
@@ -151,6 +169,209 @@
         
         .email-link:hover {
             text-decoration: underline;
+        }
+
+        /* === סגנונות כפתור ומודל AI === */
+        
+        .cta-container {
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .ai-promo-btn {
+            background: linear-gradient(45deg, #00d2d3, #0066cc);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            animation: pulse-shadow 2s infinite;
+        }
+
+        .ai-promo-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        @keyframes pulse-shadow {
+            0% { box-shadow: 0 0 0 0 rgba(0, 210, 211, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 210, 211, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 210, 211, 0); }
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            text-align: right;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .step {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        .step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .option-label {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .option-label:hover {
+            border-color: var(--accent-color);
+            background: #f0fbff;
+        }
+
+        .option-label input[type="radio"] {
+            accent-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        .option-label input[type="radio"]:checked + span {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .nav-btns {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+
+        .btn-next, .btn-submit {
+            background: var(--primary-color);
+            color: white;
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+
+        .btn-back {
+            background: #e9ecef;
+            color: #495057;
+        }
+
+        .btn-next:hover, .btn-submit:hover {
+            background: #0052a3;
+        }
+
+        .btn-back:hover {
+            background: #dde2e6;
+        }
+
+        .success-message {
+            text-align: center;
+            color: #28a745;
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .ai-promo-btn {
+                width: 100%;
+                justify-content: center;
+                font-size: 1.1rem;
+            }
+            .modal-content {
+                padding: 1.5rem;
+                width: 95%;
+            }
         }
 
     </style>
@@ -174,7 +395,8 @@
             </svg>
             <span class="logo-text">בוט-פון</span>
         </a>
-        <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&source=mailto&su=%D7%A4%D7%A0%D7%99%D7%94+%D7%9C%D7%97%D7%91%D7%A8%D7%AA+%D7%91%D7%95%D7%98+%D7%A4%D7%95%D7%9F&to=qq8401948%40gmail.com&body=%D7%A9%D7%9C%D7%95%D7%9D%2C+%D7%91%D7%A8%D7%A6%D7%95%D7%A0%D7%99+%D7%9C%D7%91%D7%A0%D7%95%D7%AA+%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA+%D7%98%D7%9C%D7%A4%D7%95%D7%A0%D7%99%D7%AA" target="_blank" rel="noopener noreferrer" class="contact-btn">צור קשר</a>
+        
+        <button id="headerContactBtn" class="contact-btn">צור קשר</button>
     </header>
 
     <section class="hero">
@@ -197,14 +419,252 @@
         </div>
     </div>
 
+    <div class="cta-container">
+        <button id="openAiModalBtn" class="ai-promo-btn">
+            🚀 בינה מלאכותית טלפונית החל מ-50 ש"ח! - לחץ כאן
+        </button>
+    </div>
+
     <footer>
         <p>רוצים לשדרג את המערכת הטלפונית שלכם?</p>
-        <p>צרו איתנו קשר במייל:</p>
+        <p>
+            <span id="footerContactBtn" class="footer-cta-text">לחצו כאן</span>
+            או צרו איתנו קשר במייל:
+        </p>
         <br>
         <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&source=mailto&su=%D7%A4%D7%A0%D7%99%D7%94+%D7%9C%D7%97%D7%91%D7%A8%D7%AA+%D7%91%D7%95%D7%98+%D7%A4%D7%95%D7%9F&to=qq8401948%40gmail.com&body=%D7%A9%D7%9C%D7%95%D7%9D%2C+%D7%91%D7%A8%D7%A6%D7%95%D7%A0%D7%99+%D7%9C%D7%91%D7%A0%D7%95%D7%AA+%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA+%D7%98%D7%9C%D7%A4%D7%95%D7%A0%D7%99%D7%AA" target="_blank" rel="noopener noreferrer" class="email-link">QQ8401948@gmail.com</a>
         <br><br>
         <p>&copy; 2024 בוט-פון - פתרונות תקשורת.</p>
     </footer>
+
+    <div id="aiModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            
+            <form id="aiForm">
+                
+                <div class="step" id="step1">
+                    <h2>היכן נטמיע את הבינה המלאכותית?</h2>
+                    <div class="option-group">
+                        <label class="option-label">
+                            <input type="radio" name="lineType" value="existing">
+                            <span>הטמעה בקו קיים שלי</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="lineType" value="new">
+                            <span>רכישת קו חדש והטמעה</span>
+                        </label>
+                    </div>
+                    <div class="nav-btns">
+                        <button type="button" class="btn btn-next" onclick="nextStep(1)">הבא &larr;</button>
+                    </div>
+                </div>
+
+                <div class="step" id="step2">
+                    <h2>מה מטרת הבוט?</h2>
+                    <div class="option-group">
+                        <label class="option-label">
+                            <input type="radio" name="purpose" value="standard_chat">
+                            <span>צ'אט רגיל (שיחה חופשית)</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="purpose" value="custom_chat">
+                            <span>צ'אט מותאם אישית</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="purpose" value="other">
+                            <span>מטרה אחרת</span>
+                        </label>
+                    </div>
+                    <div class="nav-btns">
+                        <button type="button" class="btn btn-back" onclick="prevStep(2)">חזור</button>
+                        <button type="button" class="btn btn-next" onclick="nextStep(2)">הבא &larr;</button>
+                    </div>
+                </div>
+
+                <div class="step" id="step3">
+                    <h2 id="detailsTitle">ספר לנו קצת על הצורך</h2>
+                    <p style="margin-bottom:10px; font-size:0.9rem; color:#666;" id="detailsSubtitle">תאר בקצרה מה הבוט אמור לעשות...</p>
+                    <textarea class="form-textarea" id="detailsInput" name="details" placeholder=""></textarea>
+                    <div class="nav-btns">
+                        <button type="button" class="btn btn-back" id="backBtnStep3" onclick="prevStep(3)">חזור</button>
+                        <button type="button" class="btn btn-next" onclick="nextStep(3)">הבא &larr;</button>
+                    </div>
+                </div>
+
+                <div class="step" id="step4">
+                    <h2>פרטי קשר לסיום</h2>
+                    <p style="margin-bottom:15px; color:#555;">הזן את פרטיך ונחזור אליך בהקדם.</p>
+                    
+                    <input type="email" class="form-input" name="email" placeholder="אימייל (חובה)" required>
+                    <input type="tel" class="form-input" name="phone" placeholder="מספר נייד (אופציונלי)">
+                    
+                    <div class="nav-btns">
+                        <button type="button" class="btn btn-back" onclick="prevStep(4)">חזור</button>
+                        <button type="submit" class="btn btn-submit">שלח בקשה &larr;</button>
+                    </div>
+                </div>
+
+                <div class="step" id="step5">
+                    <div class="success-message">
+                        <span class="success-icon">✅</span>
+                        <h2>הבקשה התקבלה בהצלחה!</h2>
+                        <p>נשלח אליך מייל אישור עם פרטי הפניה.</p>
+                        <p>צוות בוט-פון יצור איתך קשר בהקדם.</p>
+                        <br>
+                        <button type="button" class="btn btn-submit" onclick="closeModal()">סגור</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxaCicnQyr2EYLni_JuIfnvge7iF-PGNGnGj8kZDuLTHR11VZr7qiirwzZqpazQA8ElFA/exec'; 
+
+        let formMode = 'ai_promo';
+
+        function closeModal() {
+            document.getElementById('aiModal').style.display = 'none';
+        }
+
+        function openGeneralContact() {
+            formMode = 'contact_general';
+            resetForm();
+            document.getElementById('detailsTitle').innerText = "כיצד נוכל לעזור?";
+            document.getElementById('detailsSubtitle').style.display = 'none';
+            document.getElementById('detailsInput').placeholder = "כתוב כאן את הודעתך...";
+            document.getElementById('backBtnStep3').style.visibility = 'hidden'; 
+            
+            document.getElementById('aiModal').style.display = 'flex';
+            showStep(3); 
+        }
+
+        function openAiPromo() {
+            formMode = 'ai_promo';
+            resetForm();
+            document.getElementById('detailsTitle').innerText = "ספר לנו קצת על הצורך";
+            document.getElementById('detailsSubtitle').style.display = 'block';
+            document.getElementById('backBtnStep3').style.visibility = 'visible';
+            
+            document.getElementById('aiModal').style.display = 'flex';
+            showStep(1);
+        }
+
+        function showStep(stepNum) {
+            document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
+            document.getElementById('step' + stepNum).classList.add('active');
+        }
+
+        function nextStep(current) {
+            const currentStepEl = document.getElementById('step' + current);
+            const requiredInputs = currentStepEl.querySelectorAll('[required]');
+            let isValid = true;
+            requiredInputs.forEach(input => {
+                if (!input.checkValidity()) {
+                    input.reportValidity();
+                    isValid = false;
+                }
+            });
+            if (!isValid) return;
+
+            if (formMode === 'ai_promo' && (current === 1 || current === 2)) {
+                const radioName = current === 1 ? 'lineType' : 'purpose';
+                const checked = document.querySelector(`input[name="${radioName}"]:checked`);
+                if (!checked) {
+                    alert('אנא בחר אפשרות');
+                    return;
+                }
+            }
+
+            if (current === 2 && formMode === 'ai_promo') {
+                const purpose = document.querySelector('input[name="purpose"]:checked').value;
+                const detailsInput = document.getElementById('detailsInput');
+
+                if (purpose === 'standard_chat') {
+                    showStep(4);
+                    return;
+                } else if (purpose === 'custom_chat') {
+                    detailsInput.placeholder = "לדוגמה: אני צריך בוט שיודע לענות על שאלות לגבי שעות פתיחה ולקבוע תורים...";
+                } else if (purpose === 'other') {
+                    detailsInput.placeholder = "אנא פרט כאן בהרחבה על המטרה הייחודית שלך...";
+                }
+            }
+
+            showStep(current + 1);
+        }
+
+        function prevStep(current) {
+            if (formMode === 'contact_general') {
+                if (current === 4) { showStep(3); return; }
+            }
+            if (current === 4 && formMode === 'ai_promo') {
+                const purpose = document.querySelector('input[name="purpose"]:checked').value;
+                if (purpose === 'standard_chat') { showStep(2); return; }
+            }
+            showStep(current - 1);
+        }
+
+        function resetForm() {
+            document.getElementById('aiForm').reset();
+            document.getElementById('detailsInput').placeholder = "";
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const openAiBtn = document.getElementById('openAiModalBtn');
+            const headerContactBtn = document.getElementById('headerContactBtn');
+            const footerContactBtn = document.getElementById('footerContactBtn');
+            const closeBtn = document.getElementById('closeModal');
+            const form = document.getElementById('aiForm');
+
+            if (openAiBtn) openAiBtn.onclick = openAiPromo;
+            if (headerContactBtn) headerContactBtn.onclick = openGeneralContact;
+            if (footerContactBtn) footerContactBtn.onclick = openGeneralContact;
+            if (closeBtn) closeBtn.onclick = closeModal;
+
+            window.onclick = function(event) {
+                const modal = document.getElementById('aiModal');
+                if (event.target == modal) {
+                    closeModal();
+                }
+            }
+
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const submitBtn = document.querySelector('.btn-submit');
+                    const originalText = submitBtn.innerText;
+                    submitBtn.innerText = 'שולח...';
+                    submitBtn.disabled = true;
+
+                    const formData = new FormData(form);
+                    const data = Object.fromEntries(formData.entries());
+                    data.requestType = formMode;
+
+                    fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    })
+                    .then(() => {
+                        showStep(5);
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                        alert('שגיאה בשליחה: אנא בדוק חיבור לרשת.');
+                    })
+                    .finally(() => {
+                        submitBtn.innerText = originalText;
+                        submitBtn.disabled = false;
+                    });
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
